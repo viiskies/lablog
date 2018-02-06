@@ -30,7 +30,7 @@
         <li>
             <h4>Lorem ipsum dolor sit amet.</h4>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem, ratione.</p>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem, ratione.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing.</p>
         </li>
         <li>
             <h4>Lorem ipsum dolor sit amet.</h4>
