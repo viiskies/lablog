@@ -44,6 +44,7 @@ class PostsController extends Controller
         $post->title = 'Lorem ipsum dolor sit amet consectetur.';
         $post->content = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum fugiat ratione iusto totam repellat aspernatur, in impedit nesciunt, iste modi ex veniam ullam? Praesentium nemo harum quasi vel cumque dolores.';
         return view('posts.single',  ['post' => $post]);
+        
     }
 
 }
