@@ -36,9 +36,15 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li role="presentation" class=""><a href="/blog">Blog</a></li>
-                        <li role="presentation" class=""><a href="/create">Create a new post</a></li>
-                        <li role="presentation"><a href="/edit">Edit</a></li>
+                        <li role="presentation" class="">
+                            <a href="/blog">Blog</a>
+                        </li>
+                        <li role="presentation" class="">
+                            <a href="/create">Create a new post</a>
+                        </li>
+                        <li role="presentation" class="">
+                            <a href="/edit">Edit</a>
+                        </li>
                     </ul>
                     
                     <!-- Right Side Of Navbar -->

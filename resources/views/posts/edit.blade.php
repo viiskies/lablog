@@ -2,7 +2,6 @@
 
 @section('content')
 
-
     <h2>Laboris amet mollit qui laboris cupidatat.</h2>
     <h4>1999-05-15</h4>
     <p>
