@@ -21,6 +21,4 @@
 
     @include('comments.all')
 
-
-
 @endsection

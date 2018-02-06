@@ -79,9 +79,9 @@
         </div>
     </nav>
     <div class="container">       
-        
-        @yield('content')
-        
+        <div class="row">
+            @yield('content')
+        </div>
     </div>
 </div>
 
