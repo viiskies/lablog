@@ -13,7 +13,7 @@
 <hr />
 
 <a href="/post">
-    <h2>Id mollit ad do laboris amet qui ullamco minim.</h2>
+    <h2>Id mollit ad do laboris amet qui ullamco minim.</h2>`
 </a>
 <h4>1999-05-15</h4>
 <p>
