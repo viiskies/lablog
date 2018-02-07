@@ -21,5 +21,9 @@ Route::get('/create', 'PostsController@create')->name('posts.create');
 Route::get('/edit', 'PostsController@edit')->name('posts.edit');
 
 
+Route::get('/post/{id}/comments/{comment_id}', 'CommentsController@showSingle')->name('comments.single');
+Route::get('/post/{id}/comments', 'CommentsController@all')->name('comments.all');
+
+
 Auth::routes();
 
