@@ -11,6 +11,17 @@ class PostsSeeder extends Seeder
      */
     public function run()
     {
+
+        // $faker = Faker\Factory::create();
+
+        // for ($i=0; $i < 50; $i++) { 
+        //     DB:table('posts')->insert([
+        //         'title' => $faker->name,
+        //         'content' => $faker->paragraph,
+        //         'date' => '2017-02-17'
+        //     ]);
+        }
+
         DB::table('posts')->insert([
             'title' => 'My blog post',
             'content' => 'Conetent. Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, nemo.',
