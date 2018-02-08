@@ -17,7 +17,7 @@ class CommentsController extends Controller
             ]);
         }
     }
-    
+
     // name     /varchar 50
     // content  /text
     // date     /date

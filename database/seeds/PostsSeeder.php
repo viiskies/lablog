@@ -18,9 +18,18 @@ class PostsSeeder extends Seeder
 
         for ($i=0; $i < 50; $i++) { 
             DB::table('posts')->insert([
-                'title' => $faker->name,
-                'content' => $faker->paragraph,
-                'date' => '2017-02-17'
+                'title' => $faker->sentence($nbWords = rand(5, 10), $variableNbWords = false),
+                'content' => 
+                    '<p>' . $faker->paragraph($nbSentences = 3, $variableNbSentences = true) . 
+                    '</p><p>' . $faker->paragraph($nbSentences = 3, $variableNbSentences = true) .
+                    '</p><p>' . $faker->paragraph($nbSentences = 3, $variableNbSentences = true) .
+                    '</p><p>' . $faker->paragraph($nbSentences = 3, $variableNbSentences = true) .
+                    '</p><p>' . $faker->paragraph($nbSentences = 3, $variableNbSentences = true) . '</p>',
+                'date' => $faker->dateTimeBetween(
+                    $startDate = '-'.  10 * (52 - $i) . ' days', 
+                    $endDate = '-'. 10 * (51 - $i) . ' days', 
+                    $timezone = null
+                )
             ]);
         }
 

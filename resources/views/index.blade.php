@@ -14,8 +14,8 @@
                 <h2>{{$post->title}}</h2>
             </a>
         @endif
-            <h4>1999-05-15</h4>
-            <p>{{$post->content}}</p>
+            <h4>{{ $post->date }}</h4>
+            {!! $post->content !!}
             <hr /> 
     @endforeach
 @endsection
