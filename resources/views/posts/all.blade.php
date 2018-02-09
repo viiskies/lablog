@@ -1,21 +1,29 @@
 @extends('layouts.app')
 
 @section('content')
-    
-    <h1 class="text-center">My Laravel blog</h1>
 
-    <div class="col-md-9">
+<h1 class="text-center">My Laravel blog</h1>
+
+<div class="col-9">
     @foreach($posts as $post)
-
-        @if ($loop->iteration % 2 == 0)
+    <div class="row">
+        
+        <div class="col">
+            @if ($loop->iteration % 2 == 0)
             <a href="/post/{{ $post->id }}"><h2 class="text-success">{{ $post->title }}</h2></a>
-        @else
+            @else
             <a href="/post/{{ $post->id }}"><h2>{{ $post->title }}</h2></a>
-        @endif
-            <h4>1999-05-15</h4>
-            <p>{{ $post->content }}</p>
+            @endif
+        </div>
+        <div class="col">
+            <h4>{{ $post->date }}</h4>
+        </div>
+        <div class="col">
+            <p>{!! $post->content !!}</p>
             <hr />
-
+        </div>
+    </div>
+    
     @endforeach
     
 </div>

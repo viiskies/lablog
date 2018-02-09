@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
-// use \stdClass;
+
 use App\Post;
+use App\Comment;
 
 class PostsController extends Controller
 {
@@ -30,9 +31,12 @@ class PostsController extends Controller
     public function showSingle($pageid)
     {
         $post = Post::where('id', $pageid)->limit(1)->get();
+        $comments = Comment::where('post_id', $pageid)->get();
+
         return view('posts.single',  
             [
-                'post' => $post[0]
+                'post' => $post[0],
+                'comments' => $comments
             ]);
         
     }
