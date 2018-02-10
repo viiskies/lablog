@@ -12,6 +12,10 @@
     "devDependencies": {
         "axios": "^0.17",
         "bootstrap": "^4.0.0",
+<<<<<<< HEAD
+=======
+        "popper.js": "^1.12",
+>>>>>>> upstream/master
         "cross-env": "^5.1",
         "jquery": "^3.2",
         "laravel-mix": "^2.0",
