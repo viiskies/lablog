@@ -7,14 +7,14 @@ use Carbon\Carbon;
 
 use App\Post;
 use App\Comment;
+use App\Http\Requests\StorePostRequest;
 
 class PostsController extends Controller
 {
-
+    
     public function showAll()
     {
-        $posts = Post::all();
-        
+        $posts = Post::orderBy('id', 'desc')->limit(10)->get();
         return view('posts.all', ['posts' => $posts]);
     }
     
@@ -28,17 +28,23 @@ class PostsController extends Controller
         return view('posts.edit');
     }
     
+    public function store(StorePostRequest $request) {
+        $post = Post::insert( ['title' => $request->get('title'), 'content' => $request->get('content'), 'date' => date('Y-m-d')] );
+        return redirect()->action('PostsController@showAll');
+    }
+    
     public function showSingle($pageid)
     {
         $post = Post::where('id', $pageid)->limit(1)->get();
         $comments = Comment::where('post_id', $pageid)->get();
-
+        
         return view('posts.single',  
-            [
-                'post' => $post[0],
-                'comments' => $comments
+        [
+            'post' => $post[0],
+            'comments' => $comments
             ]);
+            
+        }
         
     }
     
-}

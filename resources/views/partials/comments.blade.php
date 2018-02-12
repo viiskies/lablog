@@ -2,11 +2,11 @@
 
     @foreach($comments as $comment)
     <div class="col-md-6">
-        <div class="panel panel-primary">
-            <div class="panel-heading">Commenter:
+        <div class="card">
+            <div class="card-title">Commenter:
                 <strong>{{ $comment->name }}</strong>
             </div>
-            <div class="panel-body">
+            <div class="card-text">
                 {{ $comment->content }}
             </div>
         </div>
