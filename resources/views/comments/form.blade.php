@@ -1,15 +1,29 @@
-<div class="row">
-    <div class="col-md-6">
-        <form class="form-inline">
-            <div class="form-group">
-                <label class="sr-only" for="exampleInputEmail3">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
-            </div>
-            <div class="form-group">
-                <label class="sr-only" for="exampleInputPassword3">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword3" placeholder="Password">
-            </div>
-            <button type="submit" class="btn btn-default">Sign in</button>
-        </form>
-    </div>
+<div class="col-xl-6">
+    <form method="post" action="{{ route('comments.store', [ 'post_id' => $post->id ]) }}">
+        {!! csrf_field() !!}
+
+        <div class="form-group">
+            <label for="cname">Your name</label>
+            <input type="text" name="cname" class="form-control" id="cname" placeholder="Your name" value="{{ old('cname') }}">
+        </div>
+
+        @if ($errors->get('cname'))
+            @foreach ($errors->get('cname') as $error)
+                <div class="alert alert-danger" role="alert">{{ $error }}</div>
+            @endforeach 
+        @endif
+
+        <div class="form-group">
+            <label for="content">Content</label>
+            <textarea type="text" name="content" class="form-control" id="content" placeholder="Your comment...">{{ old('content') }}</textarea>
+        </div>
+
+        @if ($errors->get('content')) 
+            @foreach ($errors->get('content') as $error)
+                <div class="alert alert-danger" role="alert">{{ $error }}</div>
+            @endforeach 
+        @endif
+        
+        <button type="submit" class="btn btn-secondary">Submit</button>
+    </form>
 </div>
