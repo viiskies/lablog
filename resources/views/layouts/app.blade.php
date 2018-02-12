@@ -26,9 +26,7 @@
                     </button>
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="/">
-
                     {{ config('app.name', 'Laravel') }}
-
                 </a>
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
@@ -38,9 +36,6 @@
                         </li>
                         <li role="presentation" class="nav-item">
                             <a href="/create" class="nav-link">Create a new post</a>
-                        </li>
-                        <li role="presentation" class="nav-item">
-                            <a href="/edit" class="nav-link">Edit</a>
                         </li>
                     </ul>
                     

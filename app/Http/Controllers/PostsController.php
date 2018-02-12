@@ -29,7 +29,8 @@ class PostsController extends Controller
     public function update( StorePostRequest $request, $pageid ) {
         $post = Post::where( 'id', $pageid )->update(['title' => $request->get('title'), 'content' => $request->get('content'), 'date' => date('Y-m-d')]);
         $posta = Post::where( 'id', $pageid )->limit(1)->get();
-        return view('posts.single', ['post' => $posta[0]]);
+        $comments = Comment::where( 'post_id', $pageid )->get();
+        return view('posts.single', ['post' => $posta[0], 'comments' => $comments]);
     }
     
     public function store( StorePostRequest $request ) {

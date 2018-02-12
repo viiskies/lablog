@@ -1,8 +1,8 @@
-<div class="row">
+<div class="row justify-content-md-center mt-3">
 
     @foreach($comments as $comment)
-    <div class="col-md-6">
-        <div class="card">
+    <div class="col-8 my-3">
+        <div class="card p-5">
             <div class="card-title">Commenter:
                 <strong>{{ $comment->name }}</strong>
             </div>

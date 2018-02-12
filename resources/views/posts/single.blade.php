@@ -12,7 +12,7 @@
         <p>{!! $post->content !!}</p>
     </div>
 </div>
-
+<a href="{{ route('posts.edit', ['id' => $post->id]) }}"> Edit post </a>
 @include('partials.comments')
 
 @include('comments.form')
