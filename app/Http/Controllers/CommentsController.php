@@ -14,9 +14,6 @@ class CommentsController extends Controller
         return view('comments.single', [ 'comment' => $comment[0] ]);
         }
     
-    // public function create() {
-    //     return view('posts.single');
-    // }
 
     public function store( StoreCommentRequest $reqCom, $post_id ) {
         $comment = Comment::insert( 

@@ -21,8 +21,15 @@ class PostsController extends Controller
         return view('posts.create');
     }
     
-    public function edit() {
-        return view('posts.edit');
+    public function edit( $pageid ) {
+        $post = Post::where( 'id', $pageid )->limit(1)->get();
+        return view('posts.edit', ['post' => $post[0]]);
+    }
+    
+    public function update( StorePostRequest $request, $pageid ) {
+        $post = Post::where( 'id', $pageid )->update(['title' => $request->get('title'), 'content' => $request->get('content'), 'date' => date('Y-m-d')]);
+        $posta = Post::where( 'id', $pageid )->limit(1)->get();
+        return view('posts.single', ['post' => $posta[0]]);
     }
     
     public function store( StorePostRequest $request ) {
