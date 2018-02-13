@@ -9,7 +9,11 @@
                 <div class="card-text">
                     {{ $comment->content }}
                 </div>
-                <a href="{{ route('comments.delete', ['id' => $comment->id ]) }}" class="text-right"> Delete a comment</a>
+                @if (!Auth::guest())
+                    <a href="{{ route('comments.delete', ['id' => $comment->id ]) }}" class="text-right">
+                        Delete a comment
+                    </a>
+                @endif
             </div>
         </div>
     @endforeach

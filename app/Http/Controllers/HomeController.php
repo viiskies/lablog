@@ -14,23 +14,15 @@ class HomeController extends Controller
     *
     * @return \Illuminate\Http\Response
     */
+    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
-        $posts = Post::limit(10)->get();
-        // $posts = Post::all();
-        // $post = Post::where('id', 110)->get();
-        // $somePosts = Post::where('id', '>', 110)->get();
-        // $posties = Post::where('id', '>', 110)->where('id', '<', 105)->get();
-
-        // $post = new Post();
-        // $post->title = 'My post';
-        // $post->content = 'Yayayayyaya';
-        // $post->date = '2017-08-08';
-        
-        // $post->save();
-        // dump($posts);
-        
-        return view('index', ['posts' => $posts]);
+        return view('home');
     }
     
 }
