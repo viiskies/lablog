@@ -10,10 +10,10 @@
         <div class="row mb-3" >
             <div class="col-9 offset-md-1 my-3">
                 <a href="{{ route('posts.post', ['id' => $post->id]) }}">
-                @if ($loop->iteration % 2 == 0)
-                    <h2 class="text-success">{{ $post->title }}</h2>
-                @else
-                    <h2>{{ $post->title }}</h2>
+                    @if ($loop->iteration % 2 == 0)
+                        <h2 class="text-success">{{ $post->title }}</h2>
+                    @else
+                        <h2>{{ $post->title }}</h2>
                     @endif
                 </a>
             </div>
@@ -21,7 +21,7 @@
                 <h6>{{ $post->date }}</h6>
             </div>
             <div class="col offset-md-1">
-                <p>{!! $post->content !!}</p>
+                <p>{!! \Illuminate\Support\Str::words($post->content, 50,'....<a href="/post/' . $post->id .'">Skaityti daugiau</a>') !!}</p>
             </div>
         </div>
         <div class="col d-flex justify-content-center">
@@ -46,7 +46,7 @@
         <ul>
             <li>
                 <h4>Lorem ipsum dolor sit amet.</h4>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem, ratione.</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem, ratione.</p>
             </li>
             <li>

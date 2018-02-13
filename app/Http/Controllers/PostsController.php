@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use App\Post;
 use App\Comment;
 use App\Http\Requests\StorePostRequest;
+use Illuminate\Support\Str;
 
 class PostsController extends Controller
 {
