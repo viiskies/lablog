@@ -21,6 +21,13 @@ class PostsController extends Controller
         return view('posts.create');
     }
     
+    public function delete( $pageid ) {
+        $deletedComments = Comment::where( 'post_id', $pageid )->delete();
+        // dd($deletedComments);
+        $post = Post::destroy( $pageid );
+        return redirect()->action('PostsController@showAll');
+    }
+    
     public function edit( $pageid ) {
         $post = Post::findOrFail( $pageid );
         return view('posts.edit', ['post' => $post]);

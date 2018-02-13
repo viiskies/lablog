@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Comment;
+use App\Post;
 use App\Http\Requests\StoreCommentRequest;
 
 
@@ -12,8 +13,13 @@ class CommentsController extends Controller
     public function showSingle($id, $comment_id) {
         $comment = Comment::findOrFail( $comment_id );
         return view('comments.single', [ 'comment' => $comment ]);
-        }
+    }
     
+    public function delete( $comment_id ) {
+        $post_id = Comment::findOrFail( $comment_id )->post_id;
+        $deletedComment = Comment::destroy( $comment_id );
+        return redirect()->action('PostsController@showSingle', ['id' => $post_id]);
+    }
 
     public function store( StoreCommentRequest $reqCom, $post_id ) {
         $comment = Comment::insert( 
