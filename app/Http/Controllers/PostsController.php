@@ -22,28 +22,28 @@ class PostsController extends Controller
     }
     
     public function edit( $pageid ) {
-        $post = Post::where( 'id', $pageid )->limit(1)->get();
-        return view('posts.edit', ['post' => $post[0]]);
+        $post = Post::findOrFail( $pageid );
+        return view('posts.edit', ['post' => $post]);
     }
     
     public function update( StorePostRequest $request, $pageid ) {
-        $post = Post::where( 'id', $pageid )->update(['title' => $request->get('title'), 'content' => $request->get('content'), 'date' => date('Y-m-d')]);
-        $posta = Post::where( 'id', $pageid )->limit(1)->get();
+        $post = Post::findOrFail( $pageid )->update(['title' => $request->get('title'), 'content' => $request->get('content'), 'date' => date('Y-m-d')]);
+        $posta = Post::findOrFail( $pageid );
         $comments = Comment::where( 'post_id', $pageid )->get();
-        return view('posts.single', ['post' => $posta[0], 'comments' => $comments]);
+        return view('posts.single', ['post' => $posta, 'comments' => $comments]);
     }
     
     public function store( StorePostRequest $request ) {
-        $post = Post::insert( ['title' => $request->get('title'), 'content' => $request->get('content'), 'date' => date('Y-m-d')] );
+        $post = Post::create( $request->except('_token') + [ 'date' => Carbon::now() ] );
         return redirect()->action('PostsController@showAll');
     }
     
     public function showSingle( $pageid ) {
-        $post = Post::where( 'id', $pageid )->limit(1)->get();
+        $post = Post::findOrFail( $pageid );
         $comments = Comment::where( 'post_id', $pageid )->get();
         
         return view('posts.single',  
-            [ 'post' => $post[0], 'comments' => $comments ] 
+            [ 'post' => $post, 'comments' => $comments ] 
         );
             
     }

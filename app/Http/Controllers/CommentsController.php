@@ -10,8 +10,8 @@ use App\Http\Requests\StoreCommentRequest;
 class CommentsController extends Controller
 {
     public function showSingle($id, $comment_id) {
-        $comment = Comment::where('id', $comment_id)->limit(1)->get();
-        return view('comments.single', [ 'comment' => $comment[0] ]);
+        $comment = Comment::findOrFail( $comment_id );
+        return view('comments.single', [ 'comment' => $comment ]);
         }
     
 
