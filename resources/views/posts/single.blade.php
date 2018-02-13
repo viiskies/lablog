@@ -16,13 +16,14 @@
             <p>{!! $post->content !!}</p>
         </div>
     </div>
-
+    @auth
     <div class="row justify-content-md-center mt-5">
         <div class="col-12 text-center">
             <a href="{{ route('posts.edit', ['id' => $post->id]) }}">Edit post</a> /
             <a href="{{ route('posts.delete', ['id' => $post->id]) }}">Delete a post</a>
         </div>
     </div>
+    @endauth
 
     @include('partials.comments')
     @include('comments.form')
