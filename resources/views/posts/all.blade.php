@@ -21,7 +21,7 @@
                 <h6>{{ $post->date }}</h6>
             </div>
             <div class="col offset-md-1">
-                <p>{!! \Illuminate\Support\Str::words($post->content, 50,'....<a href="/post/' . $post->id .'">Skaityti daugiau</a>') !!}</p>
+                <p>{!! \Illuminate\Support\Str::words($post->content, 100,'....<a href="/post/' . $post->id .'">Skaityti daugiau</a>') !!}</p>
             </div>
         </div>
         <div class="col d-flex justify-content-center">
