@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-    @section('content')
+@section('content')
 
     <div class="row justify-content-md-center mt-5">
         <div class="col-6">
@@ -17,12 +17,12 @@
         </div>
     </div>
     @auth
-    <div class="row justify-content-md-center mt-5">
-        <div class="col-12 text-center">
-            <a href="{{ route('posts.edit', ['id' => $post->id]) }}">Edit post</a> /
-            <a href="{{ route('posts.delete', ['id' => $post->id]) }}">Delete a post</a>
+        <div class="row justify-content-md-center mt-5">
+            <div class="col-12 text-center">
+                <a href="{{ route('posts.edit', ['id' => $post->id]) }}">Edit post</a> /
+                <a href="{{ route('posts.delete', ['id' => $post->id]) }}">Delete a post</a>
+            </div>
         </div>
-    </div>
     @endauth
 
     @include('partials.comments')
