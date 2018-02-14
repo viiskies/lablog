@@ -22,7 +22,7 @@ class CommentsController extends Controller
     }
 
     public function store( StoreCommentRequest $reqCom, $post_id ) {
-        $comment = Comment::insert( 
+        $comment = Comment::insert(
             [
                 'name' => $reqCom->get('cname'), 
                 'content' => $reqCom->get('content'), 

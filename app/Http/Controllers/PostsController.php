@@ -23,7 +23,9 @@ class PostsController extends Controller
     }
     
     public function delete( $pageid ) {
-        $deletedComments = Comment::where( 'post_id', $pageid )->delete();
+        $post = Post::findOrFail( $pageid );
+        // $deletedComments = Comment::where( 'post_id', $pageid )->delete();
+        $deletedComments = $post->comments()->delete();
         // dd($deletedComments);
         $post = Post::destroy( $pageid );
         return redirect()->action('PostsController@showAll');
@@ -35,10 +37,12 @@ class PostsController extends Controller
     }
     
     public function update( StorePostRequest $request, $pageid ) {
-        $post = Post::findOrFail( $pageid )->update(['title' => $request->get('title'), 'content' => $request->get('content'), 'date' => date('Y-m-d')]);
+        $post = Post::findOrFail( $pageid )->update(
+            ['title' => $request->get('title'), 'content' => $request->get('content'), 'date' => date('Y-m-d')]
+        );
         $posta = Post::findOrFail( $pageid );
-        $comments = Comment::where( 'post_id', $pageid )->get();
-        return view('posts.single', ['post' => $posta, 'comments' => $comments]);
+        // $comments = Comment::where( 'post_id', $pageid )->get();
+        return view('posts.single', ['post' => $posta, 'comments' => $posta->comments]);
     }
     
     public function store( StorePostRequest $request ) {
@@ -48,10 +52,9 @@ class PostsController extends Controller
     
     public function showSingle( $pageid ) {
         $post = Post::findOrFail( $pageid );
-        $comments = Comment::where( 'post_id', $pageid )->get();
-        
+        // $comments = Comment::where( 'post_id', $pageid )->get();
         return view('posts.single',  
-            [ 'post' => $post, 'comments' => $comments ] 
+            [ 'post' => $post, 'comments' => $post->comments ] 
         );
             
     }
